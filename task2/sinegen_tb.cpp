@@ -6,7 +6,7 @@
 #define MAX_SIM_CYC 1000000
 #define ADDRESS_WIDTH 8
 #define ROM_SZ 256
-#define FREQUENCY 100
+#define FREQUENCY 2
 
 int main(int argc, char **argv, char **env) {
   int simcyc;     // simulation clock count
