@@ -3,11 +3,13 @@ module sinegen #(
 )(
     input  logic clk,       // input clock
     input  logic rst,       // reset
-    input logic en,
+    input logic [WIDTH-1:0] mic_signal, //?width ->din
+    input logic wr,
+    input logic rd,
+    input logic [WIDTH-1:0] offset,
     input logic [WIDTH-1:0] incr,
-    input  logic [WIDTH-1:0] phase,   // serial data in
-    output logic [WIDTH-1:0] dout1,
-    output logic [WIDTH-1:0] dout2
+
+    output logic [WIDTH-1:0] delayed_signal
 
 );                          // End of port list
 
@@ -15,16 +17,18 @@ module sinegen #(
     counter counter (
         .clk(clk),
         .rst(rst),
-        .en(en),
         .incr(incr),//? default incr val
         .count(count)
     );
-    rom2ports rom2ports(
+
+    ram2ports ram2ports(
         .clk(clk),
-        .addr1(count),
-        .addr2(count + phase),
-        .dout1(dout1),
-        .dout2(dout2)
+        .wr_en(wr),
+        .rd_en(rd),
+        .wr_addr(count),
+        .rd_addr(count - offset),
+        .din(mic_signal),
+        .dout(delayed_signal)
     );
 
 endmodule
