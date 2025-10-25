@@ -1,4 +1,4 @@
-module sinegen #(
+module sigdelay #(
     parameter WIDTH = 8
 )(
     input  logic clk,       // input clock

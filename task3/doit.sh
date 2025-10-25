@@ -5,4 +5,4 @@ verilator --Wall --cc --trace sigdelay.sv counter.sv ram2ports.sv --exe sigdelay
 
 make -j -C obj_dir/ -f Vsigdelay.mk Vsigdelay
 
-obj_dir/Vsinegen
+obj_dir/Vsigdelay

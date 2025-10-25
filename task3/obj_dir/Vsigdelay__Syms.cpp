@@ -1,7 +1,7 @@
 // Verilated -*- C++ -*-
 // DESCRIPTION: Verilator output: Symbol table implementation internals
 
-#include "Vsigdelay__pch.h"
+#include "Vsigdelay__Syms.h"
 #include "Vsigdelay.h"
 #include "Vsigdelay___024root.h"
 
@@ -17,8 +17,6 @@ Vsigdelay__Syms::Vsigdelay__Syms(VerilatedContext* contextp, const char* namep, 
     // Setup module instances
     , TOP{this, namep}
 {
-        // Check resources
-        Verilated::stackCheck(17);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-12);
     _vm_contextp__->timeprecision(-12);

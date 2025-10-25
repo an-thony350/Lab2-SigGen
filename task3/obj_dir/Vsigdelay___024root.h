@@ -7,10 +7,9 @@
 
 #include "verilated.h"
 
-
 class Vsigdelay__Syms;
 
-class alignas(VL_CACHE_LINE_BYTES) Vsigdelay___024root final : public VerilatedModule {
+class Vsigdelay___024root final : public VerilatedModule {
   public:
 
     // DESIGN SPECIFIC STATE
@@ -22,27 +21,23 @@ class alignas(VL_CACHE_LINE_BYTES) Vsigdelay___024root final : public VerilatedM
     VL_IN8(offset,7,0);
     VL_IN8(incr,7,0);
     VL_OUT8(delayed_signal,7,0);
-    CData/*7:0*/ sinegen__DOT__count;
-    CData/*7:0*/ __Vdly__sinegen__DOT__count;
-    CData/*0:0*/ __Vtrigprevexpr___TOP__clk__0;
-    CData/*0:0*/ __Vtrigprevexpr___TOP__rst__0;
-    CData/*0:0*/ __VactContinue;
-    IData/*31:0*/ __VactIterCount;
-    VlUnpacked<CData/*7:0*/, 256> sinegen__DOT__ram2ports__DOT__ram_array;
-    VlTriggerVec<2> __VactTriggered;
-    VlTriggerVec<2> __VnbaTriggered;
+    CData/*7:0*/ sigdelay__DOT__count;
+    CData/*7:0*/ __Vdly__sigdelay__DOT__count;
+    CData/*0:0*/ __Vclklast__TOP__clk;
+    CData/*0:0*/ __Vclklast__TOP__rst;
+    VlUnpacked<CData/*7:0*/, 256> sigdelay__DOT__ram2ports__DOT__ram_array;
 
     // INTERNAL VARIABLES
     Vsigdelay__Syms* const vlSymsp;
 
     // CONSTRUCTORS
-    Vsigdelay___024root(Vsigdelay__Syms* symsp, const char* v__name);
+    Vsigdelay___024root(Vsigdelay__Syms* symsp, const char* name);
     ~Vsigdelay___024root();
     VL_UNCOPYABLE(Vsigdelay___024root);
 
     // INTERNAL METHODS
     void __Vconfigure(bool first);
-};
+} VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
 
 
 #endif  // guard
