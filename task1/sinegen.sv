@@ -13,6 +13,7 @@ module sinegen #(
         .clk(clk),
         .rst(rst),
         .en(en),
+        .incr(incr),
         .count(count)
     );
 
