@@ -1,7 +1,7 @@
 // Verilated -*- C++ -*-
 // DESCRIPTION: Verilator output: Symbol table implementation internals
 
-#include "Vsinegen__pch.h"
+#include "Vsinegen__Syms.h"
 #include "Vsinegen.h"
 #include "Vsinegen___024root.h"
 
@@ -17,8 +17,6 @@ Vsinegen__Syms::Vsinegen__Syms(VerilatedContext* contextp, const char* namep, Vs
     // Setup module instances
     , TOP{this, namep}
 {
-        // Check resources
-        Verilated::stackCheck(23);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-12);
     _vm_contextp__->timeprecision(-12);
