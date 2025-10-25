@@ -1,22 +1,25 @@
-module sinegen (
+module sinegen #(
+    parameter WIDTH = 8
+)(
     input  logic clk,       // input clock
     input  logic rst,       // reset
-    input  logic [7:0] incr,   // serial data in
-    output logic [7:0] dout
+    input logic en,
+    input  logic [WIDTH-1:0] incr,   // serial data in
+    output logic [WIDTH-1:0] dout
 );                          // End of port list
 
-    logic [4:1] sreg;       // shift register
+    logic [WIDTH-1:0] count;
+    counter counter (
+        .clk(clk),
+        .rst(rst),
+        .en(en),
+        .count(count)
+    );
 
-    always_ff @(posedge clk)
-        if (rst)
-            sreg <= 4'b0;
-        else begin
-            sreg[4] <= sreg[3];
-            sreg[3] <= sreg[2];
-            sreg[2] <= sreg[1];
-            sreg[1] <= data_in;
-        end
-
-    assign data_out = sreg[4];
+    rom rom(
+        .clk(clk),
+        .addr(count),
+        .dout(dout)
+    );
 
 endmodule
